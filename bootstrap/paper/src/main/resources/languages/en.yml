@@ -1,0 +1,25 @@
+prefix: "<gradient:#ff00ea:#00eeff><b>gnluckyblock</b></gradient> <dark_gray>»</dark_gray> "
+
+general:
+  no-permission: "<red>You don't have permission to perform this action!</red>"
+  player-only: "<red>Only players can use this command!</red>"
+  reload-success: "<green>Configuration reloaded successfully!</green>"
+  invalid-command: "<red>Invalid command. Use /lb help for more details.</red>"
+
+lucky-block:
+  give-success: "<green>Gave <yellow>%amount%</yellow> LuckyBlock to <yellow>%player%</yellow>!</green>"
+  receive: "<green>You received <yellow>%amount%</yellow> LuckyBlock!</green>"
+  receive-other: "<green>You received <yellow>%amount%</yellow> LuckyBlock from an administrator!</green>"
+  place: "<green>You placed a LuckyBlock!</green>"
+  break: "<green>You opened a LuckyBlock!</green>"
+
+rewards:
+  wishing-well-found: "<gold>✨ You found a Wishing Well! It can be used 5 times (Gold Nuggets added to your inventory).</gold>"
+  wishing-well-empty: "<red>[Wishing Well]</red> <gray>The well is out of energy!</gray>"
+  wishing-well-granted: "<gold>[Wish]</gold> <green>Your wish has been granted! (%uses% uses remaining)</green>"
+  wishing-well-vanished: "<red>The wishing well has vanished!</red>"
+  trading-post: "<green>A small trading post has appeared!</green>"
+  lucky-tree: "<gold>A lucky tree has grown!</gold>"
+  lucky-villager-name: "<gold><bold>Lucky Merchant</bold></gold>"
+  lucky-villager-spawn: "<gold>✨ A Lucky Merchant has appeared!</gold>"
+  mini-game: "<green>[Mini Game]</green> <yellow>Shoot the target block to get your reward!</yellow>"

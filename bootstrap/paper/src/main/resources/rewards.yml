@@ -1,0 +1,1782 @@
+outcomes:
+
+  lucky_item_basic_0:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: COAL
+      amount: 11
+
+  lucky_item_basic_1:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: COPPER_INGOT
+      amount: 38
+
+  lucky_item_basic_2:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: QUARTZ
+      amount: 34
+
+  lucky_item_basic_3:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: AMETHYST_SHARD
+      amount: 53
+
+  lucky_item_basic_4:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: LAPIS_LAZULI
+      amount: 28
+
+  lucky_item_basic_5:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: AMETHYST_SHARD
+      amount: 26
+
+  lucky_item_basic_6:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: COAL
+      amount: 13
+
+  lucky_item_basic_7:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: EMERALD
+      amount: 13
+
+  lucky_item_basic_8:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: GOLD_INGOT
+      amount: 41
+
+  lucky_item_basic_9:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<gold>Một số tài nguyên!</gold>"
+    data:
+      material: LAPIS_LAZULI
+      amount: 35
+
+  lucky_item_redstone_0:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Năng lượng Redstone!</red>"
+    data:
+      material: "REDSTONE"
+      amount: 32
+
+  lucky_item_redstone_block_0:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Khối Redstone!</red>"
+    data:
+      material: "REDSTONE_BLOCK"
+      amount: 11
+
+  lucky_item_redstone_1:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Năng lượng Redstone!</red>"
+    data:
+      material: "REDSTONE"
+      amount: 58
+
+  lucky_item_redstone_block_1:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Khối Redstone!</red>"
+    data:
+      material: "REDSTONE_BLOCK"
+      amount: 15
+
+  lucky_item_redstone_2:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Năng lượng Redstone!</red>"
+    data:
+      material: "REDSTONE"
+      amount: 32
+
+  lucky_item_redstone_block_2:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Khối Redstone!</red>"
+    data:
+      material: "REDSTONE_BLOCK"
+      amount: 14
+
+  lucky_item_redstone_3:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Năng lượng Redstone!</red>"
+    data:
+      material: "REDSTONE"
+      amount: 45
+
+  lucky_item_redstone_block_3:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Khối Redstone!</red>"
+    data:
+      material: "REDSTONE_BLOCK"
+      amount: 12
+
+  lucky_item_redstone_4:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Năng lượng Redstone!</red>"
+    data:
+      material: "REDSTONE"
+      amount: 56
+
+  lucky_item_redstone_block_4:
+    type: ITEM
+    rarity: COMMON
+    weight: 5
+    announcement: "<red>Khối Redstone!</red>"
+    data:
+      material: "REDSTONE_BLOCK"
+      amount: 16
+
+  lucky_armor_0:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<aqua>Trang bị phòng ngự IRON!</aqua>"
+    data:
+      material: "IRON_LEGGINGS"
+      amount: 1
+      durability: 11
+      enchantments:
+        protection: 4
+        unbreaking: 3
+
+  lucky_armor_1:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<aqua>Trang bị phòng ngự DIAMOND!</aqua>"
+    data:
+      material: "DIAMOND_BOOTS"
+      amount: 1
+      durability: 49
+      enchantments:
+        protection: 4
+        unbreaking: 3
+
+  lucky_armor_2:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<aqua>Trang bị phòng ngự DIAMOND!</aqua>"
+    data:
+      material: "DIAMOND_BOOTS"
+      amount: 1
+      durability: 9
+      enchantments:
+        protection: 4
+        unbreaking: 3
+
+  lucky_armor_3:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<aqua>Trang bị phòng ngự IRON!</aqua>"
+    data:
+      material: "IRON_LEGGINGS"
+      amount: 1
+      durability: 50
+      enchantments:
+        protection: 2
+        unbreaking: 2
+
+  lucky_armor_4:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<aqua>Trang bị phòng ngự DIAMOND!</aqua>"
+    data:
+      material: "DIAMOND_BOOTS"
+      amount: 1
+      durability: 46
+      enchantments:
+        protection: 3
+        unbreaking: 1
+
+  lucky_sword_rand_0:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<gold>Vũ khí IRON_SWORD sắc bén!</gold>"
+    data:
+      material: "IRON_SWORD"
+      amount: 1
+      durability: 31
+      enchantments:
+        sharpness: 4
+        unbreaking: 3
+        fire_aspect: 1
+
+  lucky_sword_rand_1:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<gold>Vũ khí DIAMOND_SWORD sắc bén!</gold>"
+    data:
+      material: "DIAMOND_SWORD"
+      amount: 1
+      durability: 52
+      enchantments:
+        sharpness: 3
+        unbreaking: 3
+        fire_aspect: 2
+
+  lucky_sword_rand_2:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<gold>Vũ khí NETHERITE_SWORD sắc bén!</gold>"
+    data:
+      material: "NETHERITE_SWORD"
+      amount: 1
+      durability: 25
+      enchantments:
+        sharpness: 4
+        unbreaking: 2
+        fire_aspect: 2
+
+  lucky_sword_rand_3:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<gold>Vũ khí IRON_SWORD sắc bén!</gold>"
+    data:
+      material: "IRON_SWORD"
+      amount: 1
+      durability: 16
+      enchantments:
+        sharpness: 5
+        unbreaking: 3
+        fire_aspect: 1
+
+  lucky_sword_rand_4:
+    type: ITEM
+    rarity: RARE
+    weight: 5
+    announcement: "<gold>Vũ khí IRON_SWORD sắc bén!</gold>"
+    data:
+      material: "IRON_SWORD"
+      amount: 1
+      durability: 21
+      enchantments:
+        sharpness: 5
+        unbreaking: 3
+        fire_aspect: 1
+
+  lucky_item_high_0:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<aqua>Tài sản khổng lồ: Thỏi Netherite!</aqua>"
+    data:
+      material: NETHERITE_INGOT
+      amount: 2
+
+  lucky_item_high_1:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<aqua>Tài sản khổng lồ: Thỏi Netherite!</aqua>"
+    data:
+      material: NETHERITE_INGOT
+      amount: 2
+
+  lucky_item_high_2:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<aqua>Tài sản khổng lồ: Trứng Rồng!</aqua>"
+    data:
+      material: DRAGON_EGG
+      amount: 1
+
+  lucky_item_high_3:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<aqua>Tài sản khổng lồ: Sao Địa Ngục!</aqua>"
+    data:
+      material: NETHER_STAR
+      amount: 1
+
+  lucky_item_high_4:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<aqua>Tài sản khổng lồ: Táo Vàng Phù Phép!</aqua>"
+    data:
+      material: ENCHANTED_GOLDEN_APPLE
+      amount: 2
+
+  lucky_block_drop_0:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<gold>Oh! Another Lucky Block!</gold>"
+    data:
+      material: SPONGE
+      amount: 2
+      name: "<gold><bold>Lucky Block</bold></gold>"
+      lore:
+        - "<gray>Phá để nhận quà!</gray>"
+
+  lucky_block_drop_1:
+    type: ITEM
+    rarity: LEGENDARY
+    weight: 5
+    announcement: "<gold>Oh! Another Lucky Block!</gold>"
+    data:
+      material: SPONGE
+      amount: 3
+      name: "<gold><bold>Lucky Block</bold></gold>"
+      lore:
+        - "<gray>Phá để nhận quà!</gray>"
+
+  good_cmd_0:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    luck: 50
+    announcement: "<gold>Xóa Hiệu Ứng Xấu!</gold>"
+    data:
+      commands:
+        - 'effect clear %player%'
+
+  good_cmd_1:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<gold>Mèo Thuần Hóa!</gold>"
+    data:
+      commands:
+        - 'execute at %player% run summon cat ~ ~ ~'
+        - 'execute at %player% run summon cat ~ ~ ~'
+
+  good_cmd_2:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<gold>Sói Thuần Hóa!</gold>"
+    data:
+      commands:
+        - 'execute at %player% run summon wolf ~ ~ ~'
+        - 'execute at %player% run summon wolf ~ ~ ~'
+        - 'execute at %player% run summon wolf ~ ~ ~'
+
+  good_cmd_3:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<gold>Mưa Kim Cương!</gold>"
+    data:
+      commands:
+        - 'execute at %player% run summon item ~ ~5 ~ {Item:{id:"minecraft:diamond",Count:16}}'
+
+  good_cmd_4:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<gold>Kinh Nghiệm Dồi Dào!</gold>"
+    data:
+      commands:
+        - 'experience add %player% 500'
+
+  bad_cmd_0:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    luck: -60
+    announcement: "<red>Bốc Cháy!</red>"
+    data:
+      commands:
+        - 'execute at %player% run setfire @p 10'
+
+  bad_cmd_1:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Sét Đánh!</red>"
+    data:
+      commands:
+        - 'execute at %player% run summon lightning_bolt ~ ~ ~'
+
+  bad_cmd_2:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Sợ Hãi!</red>"
+    data:
+      commands:
+        - 'execute at %player% run playsound entity.warden.heartbeat master %player% ~ ~ ~ 1 1'
+
+  bad_cmd_3:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Creeper Sét!</red>"
+    data:
+      commands:
+        - 'execute at %player% run summon creeper ~ ~ ~ {powered:1}'
+
+  bad_cmd_4:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Kẻ Đuổi Theo!</red>"
+    data:
+      commands:
+        - 'execute at %player% run summon vex ~ ~1 ~ {LifeTicks:600}'
+
+  bad_cmd_5:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Ảo Giác!</red>"
+    data:
+      commands:
+        - 'title %player% title {''text'':''NGUY HIỂM!'',''color'':''dark_red''}'
+
+  bad_cmd_6:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Dịch Chuyển Hỗn Loạn!</red>"
+    data:
+      commands:
+        - 'execute at %player% run spreadplayers ~ ~ 20 100 false %player%'
+
+  bad_cmd_7:
+    type: TRAP
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Mưa Đá!</red>"
+    data:
+      action: stone_rain
+
+  bad_cmd_8:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Rơi Tự Do!</red>"
+    data:
+      commands:
+        - 'execute at %player% run tp %player% ~ ~50 ~'
+
+  bad_cmd_9:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Mất Đồ Cầm Tay!</red>"
+    data:
+      commands:
+        - 'item replace entity %player% weapon.mainhand with air'
+
+  bad_cmd_10:
+    type: COMMAND
+    rarity: EPIC
+    weight: 20
+    announcement: "<red>Màn Đêm Buông Xuống!</red>"
+    data:
+      commands:
+        - 'time set night'
+        - 'weather rain'
+
+  good_ent_0:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Bầy Sói Trung Thành appeared!</green>"
+    data:
+      entity: WOLF
+      amount: 5
+      name: "<green>Bầy Sói Trung Thành</green>"
+
+  good_ent_1:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Mèo May Mắn appeared!</green>"
+    data:
+      entity: CAT
+      amount: 3
+      name: "<green>Mèo May Mắn</green>"
+
+  good_ent_2:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Vệ Sĩ Sắt appeared!</green>"
+    data:
+      entity: IRON_GOLEM
+      amount: 1
+      name: "<green>Vệ Sĩ Sắt</green>"
+
+  good_ent_3:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Thiên Thần Nhỏ appeared!</green>"
+    data:
+      entity: ALLAY
+      amount: 2
+      name: "<green>Thiên Thần Nhỏ</green>"
+
+  good_ent_4:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Kỳ Nhông Đáng Yêu appeared!</green>"
+    data:
+      entity: AXOLOTL
+      amount: 3
+      name: "<green>Kỳ Nhông Đáng Yêu</green>"
+
+  good_ent_5:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Người Tuyết appeared!</green>"
+    data:
+      entity: SNOW_GOLEM
+      amount: 2
+      name: "<green>Người Tuyết</green>"
+
+  good_ent_6:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Ngựa Chiến appeared!</green>"
+    data:
+      entity: HORSE
+      amount: 1
+      name: "<green>Ngựa Chiến</green>"
+
+  good_ent_7:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Bầy Ong Chăm Chỉ appeared!</green>"
+    data:
+      entity: BEE
+      amount: 5
+      name: "<green>Bầy Ong Chăm Chỉ</green>"
+
+  good_ent_8:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Cá Heo May Mắn appeared!</green>"
+    data:
+      entity: DOLPHIN
+      amount: 2
+      name: "<green>Cá Heo May Mắn</green>"
+
+  good_ent_9:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Cáo Tinh Nghịch appeared!</green>"
+    data:
+      entity: FOX
+      amount: 2
+      name: "<green>Cáo Tinh Nghịch</green>"
+
+  good_ent_10:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Sniffer Khổng Lồ appeared!</green>"
+    data:
+      entity: SNIFFER
+      amount: 1
+      name: "<green>Sniffer Khổng Lồ</green>"
+
+  good_ent_11:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Lạc Đà Sa Mạc appeared!</green>"
+    data:
+      entity: CAMEL
+      amount: 1
+      name: "<green>Lạc Đà Sa Mạc</green>"
+
+  good_ent_12:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<green>Bầy Vẹt Đáng Yêu appeared!</green>"
+    data:
+      entity: PARROT
+      amount: 3
+      name: "<green>Bầy Vẹt Đáng Yêu</green>"
+
+  bad_ent_giant_boss:
+    type: ENTITY
+    rarity: COMMON
+    weight: 5
+    luck: -100
+    announcement: "<dark_red><bold>GIANT BOSS APPEARED!</bold></dark_red>"
+    data:
+      entity: GIANT
+      amount: 1
+      name: "<dark_red>Vua Khổng Lồ</dark_red>"
+      equipment:
+        helmet: "NETHERITE_HELMET"
+        chestplate: "NETHERITE_CHESTPLATE"
+        mainhand: "NETHERITE_SWORD"
+
+  bad_ent_0:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Bầy Xương Khô attack!</red>"
+    data:
+      entity: SKELETON
+      amount: 5
+      name: "<red>Bầy Xương Khô</red>"
+
+  bad_ent_1:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Nhện Độc attack!</red>"
+    data:
+      entity: SPIDER
+      amount: 4
+      name: "<red>Nhện Độc</red>"
+
+  bad_ent_2:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Phù Thủy attack!</red>"
+    data:
+      entity: WITCH
+      amount: 1
+      name: "<red>Phù Thủy</red>"
+
+  bad_ent_3:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Kẻ Trộm Khối attack!</red>"
+    data:
+      entity: ENDERMAN
+      amount: 1
+      name: "<red>Kẻ Trộm Khối</red>"
+
+  bad_ent_4:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Quỷ Lửa attack!</red>"
+    data:
+      entity: BLAZE
+      amount: 2
+      name: "<red>Quỷ Lửa</red>"
+
+  bad_ent_5:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Lợn Lòi Hung Dữ attack!</red>"
+    data:
+      entity: PIGLIN_BRUTE
+      amount: 1
+      name: "<red>Lợn Lòi Hung Dữ</red>"
+
+  bad_ent_6:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Kẻ Đồ Tể attack!</red>"
+    data:
+      entity: VINDICATOR
+      amount: 3
+      name: "<red>Kẻ Đồ Tể</red>"
+
+  bad_ent_7:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Linh Hồn Phẫn Nộ attack!</red>"
+    data:
+      entity: VEX
+      amount: 5
+      name: "<red>Linh Hồn Phẫn Nộ</red>"
+
+  bad_ent_8:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Kẻ Gây Nổ attack!</red>"
+    data:
+      entity: CREEPER
+      amount: 3
+      name: "<red>Kẻ Gây Nổ</red>"
+
+  bad_ent_9:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Xác Sống attack!</red>"
+    data:
+      entity: ZOMBIE
+      amount: 10
+      name: "<red>Xác Sống</red>"
+
+  bad_ent_10:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Ma Trắng attack!</red>"
+    data:
+      entity: GHAST
+      amount: 1
+      name: "<red>Ma Trắng</red>"
+
+  bad_ent_11:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Warden attack!</red>"
+    data:
+      entity: WARDEN
+      amount: 1
+      name: "<red>Warden</red>"
+
+  bad_ent_12:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Giám Mục Biển attack!</red>"
+    data:
+      entity: ELDER_GUARDIAN
+      amount: 1
+      name: "<red>Giám Mục Biển</red>"
+
+  bad_ent_13:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Quái Thú Ravager attack!</red>"
+    data:
+      entity: RAVAGER
+      amount: 1
+      name: "<red>Quái Thú Ravager</red>"
+
+  bad_ent_14:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Bầy Quái Nhầy attack!</red>"
+    data:
+      entity: SLIME
+      amount: 5
+      name: "<red>Bầy Quái Nhầy</red>"
+
+  bad_ent_15:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Bầy Khối Magma attack!</red>"
+    data:
+      entity: MAGMA_CUBE
+      amount: 5
+      name: "<red>Bầy Khối Magma</red>"
+
+  bad_ent_16:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Đàn Silverfish attack!</red>"
+    data:
+      entity: SILVERFISH
+      amount: 15
+      name: "<red>Đàn Silverfish</red>"
+
+  bad_ent_17:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Heo Rừng Hung Tợn attack!</red>"
+    data:
+      entity: HOGLIN
+      amount: 3
+      name: "<red>Heo Rừng Hung Tợn</red>"
+
+  bad_ent_18:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Heo Rừng Biến Dị attack!</red>"
+    data:
+      entity: ZOGLIN
+      amount: 2
+      name: "<red>Heo Rừng Biến Dị</red>"
+
+  bad_ent_19:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Thủy Quái Drowned attack!</red>"
+    data:
+      entity: DROWNED
+      amount: 5
+      name: "<red>Thủy Quái Drowned</red>"
+
+  bad_ent_20:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Bộ Xương Lạnh Giá attack!</red>"
+    data:
+      entity: STRAY
+      amount: 3
+      name: "<red>Bộ Xương Lạnh Giá</red>"
+
+  bad_ent_21:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Thây Ma Sa Mạc attack!</red>"
+    data:
+      entity: HUSK
+      amount: 5
+      name: "<red>Thây Ma Sa Mạc</red>"
+
+  bad_ent_22:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Toán Cướp Pillager attack!</red>"
+    data:
+      entity: PILLAGER
+      amount: 5
+      name: "<red>Toán Cướp Pillager</red>"
+
+  bad_ent_23:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Kẻ Giấu Mặt Shulker attack!</red>"
+    data:
+      entity: SHULKER
+      amount: 3
+      name: "<red>Kẻ Giấu Mặt Shulker</red>"
+
+  bad_ent_24:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Nhện Hang Độc attack!</red>"
+    data:
+      entity: CAVE_SPIDER
+      amount: 5
+      name: "<red>Nhện Hang Độc</red>"
+
+  bad_ent_25:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Tiểu Đội Xác Sống attack!</red>"
+    data:
+      entity: ZOMBIE
+      amount: 6
+      name: "<red>Tiểu Đội Xác Sống</red>"
+
+  bad_ent_26:
+    type: ENTITY
+    rarity: RARE
+    weight: 20
+    announcement: "<red>Đội Quân Xương Khô attack!</red>"
+    data:
+      entity: SKELETON
+      amount: 10
+      name: "<red>Đội Quân Xương Khô</red>"
+
+  trap_bad_0:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Chôn vùi trong cát!</red>"
+    data:
+      action: sand_burial
+
+  trap_bad_1:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Mưa sỏi!</red>"
+    data:
+      action: gravel_rain
+
+  trap_bad_2:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Lồng băng!</red>"
+    data:
+      action: ice_cage
+
+  trap_bad_3:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bất ngờ từ Silverfish!</red>"
+    data:
+      action: silverfish_surprise
+
+  trap_bad_4:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Xáo trộn hành trang!</red>"
+    data:
+      action: inventory_shuffle
+
+  trap_bad_5:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Hỗn loạn Hotbar!</red>"
+    data:
+      action: hotbar_scramble
+
+  trap_bad_6:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bắn về phía trước!</red>"
+    data:
+      action: fling_forward
+
+  trap_bad_7:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bắn ngẫu nhiên!</red>"
+    data:
+      action: fling_random
+
+  trap_bad_8:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Vòng lửa!</red>"
+    data:
+      action: fire_ring
+
+  trap_bad_9:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Cát linh hồn níu chân!</red>"
+    data:
+      action: soul_sand_trap
+
+  trap_bad_10:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Mật ong dính dáp!</red>"
+    data:
+      action: honey_trap
+
+  trap_bad_11:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bật nảy cùng Slime!</red>"
+    data:
+      action: slime_bounce
+
+  trap_bad_12:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Mưa đe!</red>"
+    data:
+      action: falling_anvils
+
+  trap_bad_13:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Mưa tên!</red>"
+    data:
+      action: arrow_rain
+
+  trap_bad_14:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Đám mây độc hại!</red>"
+    data:
+      action: potion_cloud
+
+  trap_bad_15:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Mất giáp!</red>"
+    data:
+      action: strip_armor
+
+  trap_bad_16:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Rơi đồ cầm tay!</red>"
+    data:
+      action: drop_held_item
+
+  trap_bad_17:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Creeper giả!</red>"
+    data:
+      action: fake_creeper
+
+  trap_bad_18:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Sàn magma!</red>"
+    data:
+      action: magma_floor
+
+  trap_bad_19:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Lồng Zombie!</red>"
+    data:
+      action: cage_with_zombie
+
+  trap_bad_20:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Xe mỏ thuốc nổ!</red>"
+    data:
+      action: tnt_minecart
+
+  trap_bad_21:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Tháp mạng nhện!</red>"
+    data:
+      action: cobweb_tower
+
+  trap_bad_22:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Lồng xương rồng!</red>"
+    data:
+      action: cactus_cage
+
+  trap_bad_23:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Hố sâu tử thần!</red>"
+    data:
+      action: void_hole
+
+  trap_bad_24:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Nhà tù Obsidian!</red>"
+    data:
+      action: obsidian_prison
+
+  trap_bad_25:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Thảm TNT ẩn!</red>"
+    data:
+      action: tnt_carpet
+
+  trap_bad_26:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Chậm chạp!</red>"
+    data:
+      action: speed_debuff
+
+  trap_good_0:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<gold>Không có gì cả...!</gold>"
+    data:
+      action: nothing
+
+  trap_good_1:
+    type: TRAP
+    rarity: COMMON
+    weight: 15
+    announcement: "<gold>Được ăn cả, ngã về không!</gold>"
+    data:
+      action: double_or_nothing
+
+  struct_good_0:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Giếng ước nguyện!</green>"
+    data:
+      action: wishing_well
+
+  struct_good_1:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Tháp kho báu!</green>"
+    data:
+      action: mini_tower
+
+  struct_good_2:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Mưa kinh nghiệm!</green>"
+    data:
+      action: xp_rain
+
+  struct_good_3:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Thương nhân may mắn!</green>"
+    data:
+      action: lucky_villager
+
+  struct_good_4:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Trò chơi bắn cung!</green>"
+    data:
+      action: target_game
+
+  struct_good_5:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Cây may mắn!</green>"
+    data:
+      action: lucky_tree
+
+  struct_good_6:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Trạm giao dịch!</green>"
+    data:
+      action: trading_post
+
+  struct_good_7:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Trình diễn pháo hoa!</green>"
+    data:
+      action: firework_show
+
+  struct_good_8:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Mưa kim cương!</green>"
+    data:
+      action: diamond_rain
+
+  struct_good_9:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Mưa vàng!</green>"
+    data:
+      action: gold_rain
+
+  struct_good_10:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Mưa thức ăn!</green>"
+    data:
+      action: food_rain
+
+  struct_good_11:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Giá treo giáp!</green>"
+    data:
+      action: armor_stand_gift
+
+  struct_good_12:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Đèn hiệu may mắn!</green>"
+    data:
+      action: beacon_gift
+
+  struct_good_13:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Bàn phù phép!</green>"
+    data:
+      action: enchant_table_gift
+
+  struct_good_14:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Rương Ender!</green>"
+    data:
+      action: ender_chest_gift
+
+  struct_good_15:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Rương báu ngẫu nhiên!</green>"
+    data:
+      action: chest_loot
+
+  struct_good_16:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Căn nhà nhỏ!</green>"
+    data:
+      action: mini_house
+
+  struct_good_17:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Phòng kho báu!</green>"
+    data:
+      action: treasure_room
+
+  struct_good_18:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Cột kim cương!</green>"
+    data:
+      action: diamond_pillar
+
+  struct_good_19:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Đài phun nước!</green>"
+    data:
+      action: fountain
+
+  struct_good_20:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Xúc xắc may mắn!</green>"
+    data:
+      action: lucky_dice
+
+  struct_good_21:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Trang trại lúa!</green>"
+    data:
+      action: farm_auto
+
+  struct_good_22:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Thư viện mini!</green>"
+    data:
+      action: library
+
+  struct_good_23:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Vườn hoa nhỏ!</green>"
+    data:
+      action: garden
+
+  struct_good_24:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Khu vực rèn đồ!</green>"
+    data:
+      action: smithing_station
+
+  struct_good_25:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<green>Cổng End mini!</green>"
+    data:
+      action: end_portal_mini
+
+  struct_bad_0:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Lồng đe!</red>"
+    data:
+      action: anvil_cage
+
+  struct_bad_1:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Lồng nước!</red>"
+    data:
+      action: water_cage
+
+  struct_bad_2:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Kim tự tháp nhỏ!</red>"
+    data:
+      action: pyramid
+
+  struct_bad_3:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Cổng địa ngục!</red>"
+    data:
+      action: nether_portal
+
+  struct_bad_4:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Hố dung nham!</red>"
+    data:
+      action: lava_pit
+
+  struct_bad_5:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bẫy mạng nhện!</red>"
+    data:
+      action: cobweb_trap
+
+  struct_bad_6:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Tia sét!</red>"
+    data:
+      action: lightning
+
+  struct_bad_7:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Bẫy thuyền!</red>"
+    data:
+      action: boat_trap
+
+  struct_bad_8:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Kỵ sĩ Phantom!</red>"
+    data:
+      action: phantom_riders
+
+  struct_bad_9:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Tháp dung nham!</red>"
+    data:
+      action: lava_tower
+
+  struct_bad_10:
+    type: STRUCTURE
+    rarity: COMMON
+    weight: 15
+    announcement: "<red>Nhà TNT!</red>"
+    data:
+      action: tnt_house
+
+  struct_roulette_1:
+    type: STRUCTURE
+    luck: 40
+    rarity: COMMON
+    weight: 15
+    announcement: "<gold>Rương Roulette!</gold>"
+    data:
+      action: chest_roulette
+
+  good_effect_0:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Tăng Tốc!</green>"
+    data:
+      effect: SPEED
+      duration: 600
+      amplifier: 2
+
+  good_effect_1:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Sức Mạnh!</green>"
+    data:
+      effect: INCREASE_DAMAGE
+      duration: 600
+      amplifier: 1
+
+  good_effect_2:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Hồi Phục!</green>"
+    data:
+      effect: REGENERATION
+      duration: 300
+      amplifier: 1
+
+  good_effect_3:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Kháng Cự!</green>"
+    data:
+      effect: DAMAGE_RESISTANCE
+      duration: 600
+      amplifier: 1
+
+  good_effect_4:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Hấp Thụ!</green>"
+    data:
+      effect: ABSORPTION
+      duration: 600
+      amplifier: 4
+
+  good_effect_5:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: May Mắn!</green>"
+    data:
+      effect: LUCK
+      duration: 1200
+      amplifier: 2
+
+  good_effect_6:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Nhìn Trong Đêm!</green>"
+    data:
+      effect: NIGHT_VISION
+      duration: 1200
+      amplifier: 0
+
+  good_effect_7:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Thở Dưới Nước!</green>"
+    data:
+      effect: WATER_BREATHING
+      duration: 1200
+      amplifier: 0
+
+  good_effect_8:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Kháng Lửa!</green>"
+    data:
+      effect: FIRE_RESISTANCE
+      duration: 1200
+      amplifier: 0
+
+  good_effect_9:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Thợ Mỏ!</green>"
+    data:
+      effect: FAST_DIGGING
+      duration: 600
+      amplifier: 2
+
+  good_effect_10:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Nhảy Cao!</green>"
+    data:
+      effect: JUMP
+      duration: 600
+      amplifier: 2
+
+  good_effect_11:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: Tăng Máu!</green>"
+    data:
+      effect: HEALTH_BOOST
+      duration: 1200
+      amplifier: 4
+
+  good_effect_12:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<green>Nhận được hiệu ứng: No Nê!</green>"
+    data:
+      effect: SATURATION
+      duration: 30
+      amplifier: 2
+
+  bad_effect_0:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Mù Lòa!</red>"
+    data:
+      effect: BLINDNESS
+      duration: 200
+      amplifier: 0
+
+  bad_effect_1:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Chậm Chạp!</red>"
+    data:
+      effect: SLOW
+      duration: 300
+      amplifier: 2
+
+  bad_effect_2:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Yếu Ớt!</red>"
+    data:
+      effect: WEAKNESS
+      duration: 300
+      amplifier: 2
+
+  bad_effect_3:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Mệt Mỏi!</red>"
+    data:
+      effect: SLOW_DIGGING
+      duration: 300
+      amplifier: 2
+
+  bad_effect_4:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Ảo Giác!</red>"
+    data:
+      effect: CONFUSION
+      duration: 300
+      amplifier: 1
+
+  bad_effect_5:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Đói Cồn Cào!</red>"
+    data:
+      effect: HUNGER
+      duration: 600
+      amplifier: 5
+
+  bad_effect_6:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Trúng Độc!</red>"
+    data:
+      effect: POISON
+      duration: 200
+      amplifier: 1
+
+  bad_effect_7:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Héo Mòn!</red>"
+    data:
+      effect: WITHER
+      duration: 100
+      amplifier: 1
+
+  bad_effect_8:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Mất Trọng Lực!</red>"
+    data:
+      effect: LEVITATION
+      duration: 100
+      amplifier: 4
+
+  bad_effect_9:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Bóng Tối!</red>"
+    data:
+      effect: DARKNESS
+      duration: 300
+      amplifier: 0
+
+  bad_effect_10:
+    type: EFFECT
+    rarity: COMMON
+    weight: 20
+    announcement: "<red>Bị dính hiệu ứng: Phát Quang (Bị Lộ Vị Trí)!</red>"
+    data:
+      effect: GLOWING
+      duration: 1200
+      amplifier: 0
+
+  trap_bad_27:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Hố sâu 10 block!</red>"
+    data:
+      action: hole_10
+
+  trap_bad_28:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Chuột bị loạn!</red>"
+    data:
+      action: random_mouse
+
+  trap_bad_29:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Điều khiển bị đảo ngược!</red>"
+    data:
+      action: inverted_controls
+
+  trap_bad_30:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Bị bay lên không trung!</red>"
+    data:
+      action: levitation_trap
+
+  trap_bad_31:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Há»“ lava cháº¿t chóc!</red>"
+    data:
+      action: lava_lake
+
+  trap_bad_32:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Máu chỉ còn 1 tim!</red>"
+    data:
+      action: set_hp_2
+
+  trap_bad_33:
+    type: TRAP
+    rarity: RARE
+    weight: 10
+    announcement: "<red>Lời nguyển Bí Ngô!</red>"
+    data:
+      action: cursed_pumpkin
