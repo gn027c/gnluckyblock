@@ -327,6 +327,163 @@ public class TrapHandler {
                 }.runTaskTimer(gnluckyblock.getInstance(), 0, 3);
                 return true;
             }
+            case "falling_anvils": {
+                Location loc = player.getLocation().add(0, 15, 0);
+                for (int i = 0; i < 15; i++) {
+                    double dx = RANDOM.nextDouble() * 6 - 3;
+                    double dz = RANDOM.nextDouble() * 6 - 3;
+                    FallingBlock fb = player.getWorld().spawnFallingBlock(loc.clone().add(dx, 0, dz), Material.ANVIL.createBlockData());
+                    fb.setHurtEntities(true);
+                    fb.setDropItem(false);
+                }
+                return true;
+            }
+            case "arrow_rain": {
+                Location loc = player.getLocation().add(0, 12, 0);
+                for (int i = 0; i < 20; i++) {
+                    double dx = RANDOM.nextDouble() * 8 - 4;
+                    double dz = RANDOM.nextDouble() * 8 - 4;
+                    Arrow arrow = player.getWorld().spawn(loc.clone().add(dx, 0, dz), Arrow.class);
+                    arrow.setVelocity(new org.bukkit.util.Vector(0, -1, 0));
+                }
+                return true;
+            }
+            case "potion_cloud": {
+                AreaEffectCloud cloud = (AreaEffectCloud) player.getWorld().spawnEntity(player.getLocation(), EntityType.AREA_EFFECT_CLOUD);
+                cloud.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 200, 1), true);
+                cloud.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 200, 0), true);
+                cloud.setRadius(3.0f);
+                cloud.setDuration(400);
+                return true;
+            }
+            case "strip_armor": {
+                player.getInventory().setArmorContents(null);
+                player.getWorld().playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1f, 1f);
+                return true;
+            }
+            case "drop_held_item": {
+                ItemStack item = player.getInventory().getItemInMainHand();
+                if (item != null && item.getType() != Material.AIR) {
+                    player.getWorld().dropItemNaturally(player.getLocation(), item);
+                    player.getInventory().setItemInMainHand(null);
+                }
+                return true;
+            }
+            case "fake_creeper": {
+                player.getWorld().playSound(player.getLocation(), Sound.ENTITY_CREEPER_PRIMED, 1f, 1f);
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.getWorld().playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1f, 1f);
+                        player.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, player.getLocation(), 1);
+                    }
+                }.runTaskLater(gnluckyblock.getInstance(), 30L);
+                return true;
+            }
+            case "magma_floor": {
+                Location loc = player.getLocation().clone();
+                for (int x = -1; x <= 1; x++) {
+                    for (int z = -1; z <= 1; z++) {
+                        loc.clone().add(x, -1, z).getBlock().setType(Material.MAGMA_BLOCK);
+                    }
+                }
+                return true;
+            }
+            case "cage_with_zombie": {
+                Location loc = player.getLocation().getBlock().getLocation().add(0.5, 0, 0.5);
+                player.teleport(loc);
+                for (int y = 0; y <= 2; y++) {
+                    for (int x = -1; x <= 1; x++) {
+                        for (int z = -1; z <= 1; z++) {
+                            if (x == 0 && z == 0 && y < 2) continue;
+                            loc.clone().add(x, y, z).getBlock().setType(Material.GLASS);
+                        }
+                    }
+                }
+                player.getWorld().spawnEntity(loc, EntityType.ZOMBIE);
+                return true;
+            }
+            case "cobweb_tower": {
+                Location loc = player.getLocation().getBlock().getLocation();
+                for (int y = 0; y <= 5; y++) {
+                    loc.clone().add(0, y, 0).getBlock().setType(Material.COBWEB);
+                }
+                return true;
+            }
+            case "cactus_cage": {
+                Location loc = player.getLocation().getBlock().getLocation().add(0.5, 0, 0.5);
+                player.teleport(loc);
+                for (int x = -1; x <= 1; x++) {
+                    for (int z = -1; z <= 1; z++) {
+                        if (x == 0 && z == 0) continue;
+                        loc.clone().add(x, -1, z).getBlock().setType(Material.SAND);
+                        loc.clone().add(x, 0, z).getBlock().setType(Material.CACTUS);
+                        loc.clone().add(x, 1, z).getBlock().setType(Material.CACTUS);
+                    }
+                }
+                return true;
+            }
+            case "void_hole": {
+                Location loc = player.getLocation().getBlock().getLocation();
+                for (int y = loc.getBlockY(); y >= -64; y--) {
+                    for (int x = -1; x <= 1; x++) {
+                        for (int z = -1; z <= 1; z++) {
+                            loc.getWorld().getBlockAt(loc.getBlockX() + x, y, loc.getBlockZ() + z).setType(Material.AIR);
+                        }
+                    }
+                }
+                return true;
+            }
+            case "obsidian_prison": {
+                Location loc = player.getLocation().getBlock().getLocation().add(0.5, 0, 0.5);
+                player.teleport(loc);
+                for (int y = 0; y <= 3; y++) {
+                    for (int x = -1; x <= 1; x++) {
+                        for (int z = -1; z <= 1; z++) {
+                            if (x == 0 && z == 0 && y > 0 && y < 3) continue;
+                            loc.clone().add(x, y, z).getBlock().setType(Material.OBSIDIAN);
+                        }
+                    }
+                }
+                return true;
+            }
+            case "tnt_carpet": {
+                Location loc = player.getLocation();
+                for (int x = -2; x <= 2; x++) {
+                    for (int z = -2; z <= 2; z++) {
+                        loc.clone().add(x, -1, z).getBlock().setType(Material.TNT);
+                        loc.clone().add(x, 0, z).getBlock().setType(Material.RED_CARPET);
+                    }
+                }
+                return true;
+            }
+            case "speed_debuff": {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 400, 2));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 400, 2));
+                return true;
+            }
+            case "double_or_nothing": {
+                if (RANDOM.nextBoolean()) {
+                    player.getWorld().strikeLightning(player.getLocation());
+                    player.setHealth(Math.max(0, player.getHealth() - 10));
+                } else {
+                    player.getInventory().addItem(new ItemStack(Material.DIAMOND, 5));
+                }
+                return true;
+            }
+            case "gold_rain": {
+                Location loc = player.getLocation().add(0, 10, 0);
+                for (int i = 0; i < 15; i++)
+                    player.getWorld().dropItemNaturally(loc.clone().add(RANDOM.nextDouble()*6-3, 0, RANDOM.nextDouble()*6-3), new ItemStack(Material.GOLD_INGOT));
+                return true;
+            }
+            case "food_rain": {
+                Location loc = player.getLocation().add(0, 10, 0);
+                Material[] foods = {Material.COOKED_BEEF, Material.GOLDEN_CARROT, Material.COOKED_CHICKEN, Material.APPLE};
+                for (int i = 0; i < 15; i++)
+                    player.getWorld().dropItemNaturally(loc.clone().add(RANDOM.nextDouble()*6-3, 0, RANDOM.nextDouble()*6-3), new ItemStack(foods[RANDOM.nextInt(foods.length)]));
+                return true;
+            }
         }
         return false;
     }

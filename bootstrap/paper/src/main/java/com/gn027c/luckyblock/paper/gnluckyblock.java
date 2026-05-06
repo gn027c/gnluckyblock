@@ -6,6 +6,7 @@ import com.gn027c.luckyblock.core.manager.ModuleManager;
 import com.gn027c.luckyblock.paper.block.BlockModule;
 import com.gn027c.luckyblock.paper.config.PaperConfig;
 import com.gn027c.luckyblock.paper.reward.RewardModule;
+import com.gn027c.luckyblock.paper.util.PluginLogger;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -73,6 +74,7 @@ public class gnluckyblock extends JavaPlugin {
             getLogger().info("[1/3] Loading configuration...");
             saveDefaultConfig();
             this.mainConfig = new PaperConfig(getConfig());
+            PluginLogger.log(PluginLogger.Flag.CONFIG, "Đã nạp file config.yml");
             
             this.messageService = new MessageService();
             this.languageManager = new LanguageManager(messageService);
@@ -157,6 +159,7 @@ public class gnluckyblock extends JavaPlugin {
         this.mainConfig = new PaperConfig(getConfig());
         loadLanguage();
         rewardModule.reloadRewards();
+        PluginLogger.log(PluginLogger.Flag.CONFIG, "Plugin đã được reload hoàn tất.");
         getLogger().info("Plugin has been reloaded.");
     }
 

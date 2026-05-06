@@ -4,6 +4,7 @@ import com.gn027c.luckyblock.paper.block.BlockModule;
 import com.gn027c.luckyblock.paper.reward.RewardModule;
 import com.gn027c.luckyblock.core.reward.Reward;
 import com.gn027c.luckyblock.paper.util.ItemFactory;
+import com.gn027c.luckyblock.paper.util.PluginLogger;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XSound;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -39,6 +40,7 @@ public class LuckyBlockListener implements Listener {
     // =========================================================
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockPlace(BlockPlaceEvent event) {
+        Player player = event.getPlayer();
         ItemStack item = event.getItemInHand();
         if (item == null || XMaterial.matchXMaterial(item) == XMaterial.AIR) return;
 
@@ -46,6 +48,10 @@ public class LuckyBlockListener implements Listener {
         if (id != null) {
             int luck = ItemFactory.getLuckyBlockLuck(item);
             blockModule.addLocation(event.getBlock().getLocation(), id, luck);
+
+            // LOG: block-break flag
+            PluginLogger.log(PluginLogger.Flag.BLOCK_BREAK,
+                player.getName() + " đặt Lucky Block [id=" + id + ", luck=" + luck + "] tại " + formatLoc(event.getBlock().getLocation()));
 
             org.bukkit.Bukkit.getScheduler().runTask(com.gn027c.luckyblock.paper.gnluckyblock.getInstance(), () -> {
                 Block block = event.getBlockPlaced();
@@ -83,7 +89,12 @@ public class LuckyBlockListener implements Listener {
         if (blockModule.isLuckyBlock(block.getLocation())) {
             BlockModule.LuckyBlockData data = blockModule.getData(block.getLocation());
             int blockLuck = (data != null) ? data.luck : 0;
+            String blockId = (data != null) ? data.id : "unknown";
             blockModule.removeLocation(block.getLocation());
+
+            // LOG: block-break flag
+            PluginLogger.log(PluginLogger.Flag.BLOCK_BREAK,
+                player.getName() + " đập Lucky Block [id=" + blockId + ", luck=" + blockLuck + "] tại " + formatLoc(block.getLocation()));
 
             block.getWorld().getNearbyEntities(block.getLocation().add(0.5, 0.5, 0.5), 0.1, 0.1, 0.1).stream()
                 .filter(e -> e instanceof org.bukkit.entity.ItemDisplay && e.getScoreboardTags().contains("lucky_block_display"))
@@ -104,7 +115,13 @@ public class LuckyBlockListener implements Listener {
             Reward reward = rewardModule.getRewardManager().getRandomReward(blockLuck, threshold);
 
             if (reward != null) {
+                // LOG: outcomes flag
+                PluginLogger.log(PluginLogger.Flag.OUTCOMES,
+                    player.getName() + " nhận được [" + reward.getId() + "] (type=" + reward.getType() + ", luck=" + reward.getLuck() + ") tại " + formatLoc(block.getLocation()));
                 rewardModule.executeReward(player, reward);
+            } else {
+                PluginLogger.log(PluginLogger.Flag.OUTCOMES,
+                    player.getName() + " không nhận được phần thưởng nào (blockLuck=" + blockLuck + ")");
             }
         }
     }
@@ -275,5 +292,13 @@ public class LuckyBlockListener implements Listener {
                 }
             }
         }
+    }
+    // ─────────────────────────────────────────────────────────────────
+    // Helpers
+    // ─────────────────────────────────────────────────────────────────
+    private String formatLoc(org.bukkit.Location loc) {
+        return String.format("world=%s x=%d y=%d z=%d",
+            loc.getWorld() != null ? loc.getWorld().getName() : "?",
+            loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
     }
 }

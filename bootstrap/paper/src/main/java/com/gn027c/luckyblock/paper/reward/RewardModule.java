@@ -6,6 +6,7 @@ import com.gn027c.luckyblock.core.reward.RewardManager;
 import com.gn027c.luckyblock.core.reward.RewardType;
 import com.gn027c.luckyblock.paper.gnluckyblock;
 import com.gn027c.luckyblock.paper.gui.RewardGUI;
+import com.gn027c.luckyblock.paper.util.PluginLogger;
 import com.cryptomorin.xseries.XEnchantment;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
@@ -13,6 +14,7 @@ import com.cryptomorin.xseries.messages.Titles;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.MemorySection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -24,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +49,8 @@ public class RewardModule extends AbstractModule {
 
     public void loadRewards() {
         rewardManager.clearRewards();
-        
+        boolean debug = plugin.getConfig().getBoolean("settings.debug", false);
+
         // Cấu hình chế độ random (Mặc định là TIERED)
         String modeStr = plugin.getConfig().getString("settings.reward-mode", "TIERED").toUpperCase();
         try {
@@ -60,6 +64,8 @@ public class RewardModule extends AbstractModule {
             plugin.saveResource("rewards.yml", false);
         }
 
+        List<RewardValidator.ValidationIssue> allIssues = new ArrayList<>();
+
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
             YamlConfiguration config = YamlConfiguration.loadConfiguration(reader);
             ConfigurationSection outcomes = config.getConfigurationSection("outcomes");
@@ -68,99 +74,173 @@ public class RewardModule extends AbstractModule {
                     ConfigurationSection rewardData = outcomes.getConfigurationSection(key);
                     if (rewardData == null) continue;
 
-                String typeStr = rewardData.getString("type");
-                if (typeStr == null) {
-                    plugin.getLogger().warning("Reward '" + key + "' is missing 'type' field, skipping.");
-                    continue;
-                }
-                RewardType type = RewardType.valueOf(typeStr.toUpperCase());
-                String rarityStr = rewardData.getString("rarity", "COMMON").toUpperCase();
-                com.gn027c.luckyblock.core.reward.Rarity rarity;
-                try {
-                    rarity = com.gn027c.luckyblock.core.reward.Rarity.valueOf(rarityStr);
-                } catch (IllegalArgumentException e) {
-                    rarity = com.gn027c.luckyblock.core.reward.Rarity.COMMON;
-                }
-                int weight = rewardData.getInt("weight", 10);
-                int luck = rewardData.getInt("luck", 0);
-                
-                // Tự động gán luck nếu chưa có dựa trên ID
-                if (!rewardData.contains("luck")) {
-                    String idLower = key.toLowerCase();
-                    if (idLower.contains("bad") || idLower.contains("troll") || idLower.contains("trap") || idLower.contains("tnt") || idLower.contains("lava") || idLower.contains("creeper")) {
-                        luck = -50;
-                    } else if (idLower.contains("good") || idLower.contains("lucky") || idLower.contains("diamond") || idLower.contains("emerald") || idLower.contains("netherite")) {
-                        luck = 50;
+                    // ── Pre-validation (Geyser-style) ──────────────────────────────
+                    List<RewardValidator.ValidationIssue> issues = RewardValidator.validate(key, rewardData);
+                    allIssues.addAll(issues);
+
+                    boolean hasError = issues.stream()
+                            .anyMatch(i -> i.severity() == RewardValidator.ValidationIssue.Severity.ERROR);
+                    if (hasError) {
+                        if (debug) plugin.getLogger().warning("[DEBUG] Bỏ qua reward '" + key + "' do có lỗi cấu hình.");
+                        continue; // skip broken rewards — don't register them
                     }
-                }
+                    // ───────────────────────────────────────────────────────────────
 
-                String announcement = rewardData.getString("announcement", "");
-                
-                Map<String, Object> data = new HashMap<>();
-                ConfigurationSection innerData = rewardData.getConfigurationSection("data");
-                if (innerData != null) {
-                    data = innerData.getValues(true);
-                }
+                    String typeStr = rewardData.getString("type");
+                    RewardType type = RewardType.valueOf(typeStr.toUpperCase());
+                    String rarityStr = rewardData.getString("rarity", "COMMON").toUpperCase();
+                    com.gn027c.luckyblock.core.reward.Rarity rarity;
+                    try {
+                        rarity = com.gn027c.luckyblock.core.reward.Rarity.valueOf(rarityStr);
+                    } catch (IllegalArgumentException e) {
+                        rarity = com.gn027c.luckyblock.core.reward.Rarity.COMMON;
+                    }
+                    int weight = rewardData.getInt("weight", 10);
+                    int luck = rewardData.getInt("luck", 0);
 
-                rewardManager.registerReward(new Reward(key, type, rarity, weight, luck, data, announcement));
+                    // Tự động gán luck nếu chưa có dựa trên ID
+                    if (!rewardData.contains("luck")) {
+                        String idLower = key.toLowerCase();
+                        if (idLower.contains("bad") || idLower.contains("troll") || idLower.contains("trap") || idLower.contains("tnt") || idLower.contains("lava") || idLower.contains("creeper")) {
+                            luck = -50;
+                        } else if (idLower.contains("good") || idLower.contains("lucky") || idLower.contains("diamond") || idLower.contains("emerald") || idLower.contains("netherite")) {
+                            luck = 50;
+                        }
+                    }
+
+                    String announcement = rewardData.getString("announcement", "");
+
+                    Map<String, Object> data = new HashMap<>();
+                    ConfigurationSection innerData = rewardData.getConfigurationSection("data");
+                    if (innerData != null) {
+                        data = sectionToMap(innerData);
+                    }
+
+                    rewardManager.registerReward(new Reward(key, type, rarity, weight, luck, data, announcement));
                 }
             } else {
-                plugin.getLogger().warning("No 'outcomes' section found in rewards.yml");
+                plugin.getLogger().warning("Không tìm thấy section 'outcomes' trong rewards.yml");
             }
         } catch (Exception e) {
-            plugin.getLogger().severe("Lá»—i khi táeaº£i rewards.yml: " + e.getMessage());
-            e.printStackTrace();
+            plugin.getLogger().severe("Lỗi khi đọc rewards.yml: " + e.getMessage());
+            if (debug) e.printStackTrace();
         }
-        
-        plugin.getLogger().info("\u0110\u00e3 t\u1ea3i " + rewardManager.getRewards().size() + " ph\u1ea7n th\u01b0\u1edfng LuckyBlock.");
+
+        // Print validation report
+        RewardValidator.printReport(plugin.getLogger(), allIssues, rewardManager.getRewards().size());
+        PluginLogger.log(PluginLogger.Flag.CONFIG, "Đã nạp " + rewardManager.getRewards().size() + " phần thưởng từ rewards.yml.");
+        plugin.getLogger().info("Đã nạp " + rewardManager.getRewards().size() + " phần thưởng LuckyBlock.");
+    }
+
+    /**
+     * Recursively converts a ConfigurationSection (including nested MemorySections)
+     * into a plain Map<String, Object> so that casting to Map won't throw ClassCastException.
+     */
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> sectionToMap(ConfigurationSection section) {
+        Map<String, Object> result = new HashMap<>();
+        for (String key : section.getKeys(false)) {
+            Object value = section.get(key);
+            if (value instanceof MemorySection) {
+                result.put(key, sectionToMap((MemorySection) value));
+            } else if (value instanceof List) {
+                result.put(key, convertList((List<?>) value));
+            } else {
+                result.put(key, value);
+            }
+        }
+        return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<Object> convertList(List<?> list) {
+        java.util.ArrayList<Object> result = new java.util.ArrayList<>();
+        for (Object item : list) {
+            if (item instanceof MemorySection) {
+                result.add(sectionToMap((MemorySection) item));
+            } else if (item instanceof Map) {
+                // Convert any nested MemorySections inside maps within lists
+                Map<String, Object> map = new HashMap<>();
+                for (Map.Entry<?, ?> entry : ((Map<?, ?>) item).entrySet()) {
+                    Object v = entry.getValue();
+                    if (v instanceof MemorySection) {
+                        map.put(String.valueOf(entry.getKey()), sectionToMap((MemorySection) v));
+                    } else {
+                        map.put(String.valueOf(entry.getKey()), v);
+                    }
+                }
+                result.add(map);
+            } else {
+                result.add(item);
+            }
+        }
+        return result;
     }
 
     public void executeReward(Player player, Reward reward) {
         if (reward == null) return;
-        
-        String announcement = reward.getAnnouncement();
-        if (announcement != null && !announcement.isEmpty()) {
-            String prefix = plugin.getLanguageManager().getRawMessage("prefix");
-            plugin.getAudience(player).sendMessage(MiniMessage.miniMessage().deserialize(prefix + announcement));
-        }
 
-        RewardType type = reward.getType();
+        String rewardId  = reward.getId();
+        RewardType type  = reward.getType();
         Map<String, Object> data = reward.getData();
 
+        try {
+            String announcement = reward.getAnnouncement();
+            if (announcement != null && !announcement.isEmpty()) {
+                String prefix = plugin.getLanguageManager().getRawMessage("prefix");
+                plugin.getAudience(player).sendMessage(MiniMessage.miniMessage().deserialize(prefix + announcement));
+            }
+        } catch (Exception e) {
+            plugin.getLogger().warning("[gnluckyblock] Lỗi khi gửi announcement cho reward '" + rewardId + "': " + e.getMessage());
+        }
+
+        try {
         switch (type) {
             case ITEM: {
-                if (data.containsKey("items")) {
-                    List<Map<?, ?>> items = (List<Map<?, ?>>) data.get("items");
-                    for (Map<?, ?> itemData : items) {
-                        Material mat = Material.valueOf((String) itemData.get("material"));
-                        int amount = (int) itemData.get("amount");
+                try {
+                    if (data.containsKey("items")) {
+                        List<Map<?, ?>> items = (List<Map<?, ?>>) data.get("items");
+                        for (Map<?, ?> itemData : items) {
+                            Material mat = Material.valueOf((String) itemData.get("material"));
+                            int amount = (int) itemData.get("amount");
+                            player.getInventory().addItem(new ItemStack(mat, amount));
+                        }
+                    } else if (data.containsKey("material")) {
+                        Material mat = Material.valueOf((String) data.get("material"));
+                        int amount = data.containsKey("amount") ? (int) data.get("amount") : 1;
                         player.getInventory().addItem(new ItemStack(mat, amount));
                     }
-                } else if (data.containsKey("material")) {
-                    Material mat = Material.valueOf((String) data.get("material"));
-                    int amount = data.containsKey("amount") ? (int) data.get("amount") : 1;
-                    player.getInventory().addItem(new ItemStack(mat, amount));
+                } catch (Exception e) {
+                    throw new RuntimeException("[ITEM] reward='" + rewardId + "' " + dataSnapshot(data), e);
                 }
                 break;
             }
             
             case EFFECT: {
-                String effectName = (String) data.get("effect");
-                int duration = (int) data.get("duration");
-                int amplifier = (int) data.get("amplifier");
-                XPotion.matchXPotion(effectName).ifPresent(xp -> player.addPotionEffect(xp.buildPotionEffect(duration, amplifier)));
+                try {
+                    String effectName = (String) data.get("effect");
+                    int duration = (int) data.get("duration");
+                    int amplifier = (int) data.get("amplifier");
+                    XPotion.matchXPotion(effectName).ifPresent(xp -> player.addPotionEffect(xp.buildPotionEffect(duration, amplifier)));
+                } catch (Exception e) {
+                    throw new RuntimeException("[EFFECT] reward='" + rewardId + "' " + dataSnapshot(data), e);
+                }
                 break;
             }
             
             case COMMAND: {
-                if (data.containsKey("commands")) {
-                    List<String> commands = (List<String>) data.get("commands");
-                    for (String cmd : commands) {
+                try {
+                    if (data.containsKey("commands")) {
+                        List<String> commands = (List<String>) data.get("commands");
+                        for (String cmd : commands) {
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("%player%", player.getName()));
+                        }
+                    } else if (data.containsKey("command")) {
+                        String cmd = (String) data.get("command");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("%player%", player.getName()));
                     }
-                } else if (data.containsKey("command")) {
-                    String cmd = (String) data.get("command");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("%player%", player.getName()));
+                } catch (Exception e) {
+                    throw new RuntimeException("[COMMAND] reward='" + rewardId + "' " + dataSnapshot(data), e);
                 }
                 break;
             }
@@ -220,10 +300,9 @@ public class RewardModule extends AbstractModule {
                 }
                 break;
             }
-                
             case STRUCTURE:
             case TRAP: {
-                if (data.containsKey("action")) {
+                try {
                     String action = (String) data.get("action");
                     if ("fling".equalsIgnoreCase(action)) {
                         org.bukkit.util.Vector vel = player.getVelocity();
@@ -313,34 +392,45 @@ public class RewardModule extends AbstractModule {
                         loc.clone().add(0, 2, 0).getBlock().setType(Material.valueOf(com.gn027c.luckyblock.paper.gnluckyblock.getInstance().getConfig().getString("lucky-block.material", "GOLD_BLOCK")));
                         plugin.getLanguageManager().sendMessage(plugin.getAudience(player), "rewards.lucky-tree");
                     } else if ("anvil_cage".equalsIgnoreCase(action)) {
-                        org.bukkit.Location loc = player.getLocation();
+                        org.bukkit.Location centerLoc = player.getLocation().getBlock().getLocation().add(0.5, 0, 0.5);
+                        centerLoc.setYaw(player.getLocation().getYaw());
+                        centerLoc.setPitch(player.getLocation().getPitch());
+                        player.teleport(centerLoc);
+
                         for (int y = 0; y <= 2; y++) {
                             for (int x = -1; x <= 1; x++) {
                                 for (int z = -1; z <= 1; z++) {
                                     if (x == 0 && z == 0) continue; 
-                                    loc.clone().add(x, y, z).getBlock().setType(Material.GLASS);
+                                    centerLoc.clone().add(x, y, z).getBlock().setType(Material.GLASS);
                                 }
                             }
                         }
-                        // Căn giữa tọa độ để đe rơi đúng tâm, không bị kẹt vào kính
-                        org.bukkit.Location centerLoc = loc.getBlock().getLocation().add(0.5, 0, 0.5);
+                        // Clear the space above so the anvil doesn't land on blocks above the player
+                        for (int y = 3; y <= 10; y++) {
+                            centerLoc.clone().add(0, y, 0).getBlock().setType(Material.AIR);
+                        }
+
                         // Dùng spawnFallingBlock để đảm bảo đe rơi xuống và gây sát thương
-                        // Đặt độ cao rơi là 10 block thay vì 15 để giảm rủi ro đụng trần nhà
-                        org.bukkit.entity.FallingBlock anvil = loc.getWorld().spawnFallingBlock(centerLoc.clone().add(0, 10, 0), org.bukkit.Material.ANVIL.createBlockData());
+                        // Đặt độ cao rơi là 10 block
+                        org.bukkit.entity.FallingBlock anvil = centerLoc.getWorld().spawnFallingBlock(centerLoc.clone().add(0, 10, 0), org.bukkit.Material.ANVIL.createBlockData());
                         anvil.setHurtEntities(true);
                         anvil.setDropItem(false);
                         anvil.setDamagePerBlock(2.0f); // Tăng sát thương mỗi block rơi
                     } else if ("water_cage".equalsIgnoreCase(action)) {
-                        org.bukkit.Location loc = player.getLocation();
+                        org.bukkit.Location centerLoc = player.getLocation().getBlock().getLocation().add(0.5, 0, 0.5);
+                        centerLoc.setYaw(player.getLocation().getYaw());
+                        centerLoc.setPitch(player.getLocation().getPitch());
+                        player.teleport(centerLoc);
+
                         for (int y = 0; y <= 2; y++) {
                             for (int x = -1; x <= 1; x++) {
                                 for (int z = -1; z <= 1; z++) {
                                     if (x == 0 && z == 0 && y < 2) continue;
-                                    loc.clone().add(x, y, z).getBlock().setType(Material.OBSIDIAN);
+                                    centerLoc.clone().add(x, y, z).getBlock().setType(Material.OBSIDIAN);
                                 }
                             }
                         }
-                        loc.clone().add(0, 1, 0).getBlock().setType(Material.WATER);
+                        centerLoc.clone().add(0, 1, 0).getBlock().setType(Material.WATER);
                     } else if ("mini_tower".equalsIgnoreCase(action)) {
                         org.bukkit.Location loc = player.getLocation();
                         for (int y = 0; y <= 4; y++) {
@@ -505,10 +595,49 @@ public class RewardModule extends AbstractModule {
                     } else if (TrapHandler.handle(player, action, data)) {
                         // Handled by TrapHandler
                     }
+                } catch (RuntimeException e) {
+                    throw e; // already has context from inner try-catches
+                } catch (Exception e) {
+                    String action2 = data.containsKey("action") ? String.valueOf(data.get("action")) : "unknown";
+                    throw new RuntimeException("[STRUCTURE/TRAP] reward='" + rewardId + "' action='" + action2 + "' " + dataSnapshot(data), e);
                 }
                 break;
             }
         }
+        } catch (Exception e) {
+            boolean debug = plugin.getConfig().getBoolean("settings.debug", false);
+            String cause = e.getCause() != null ? e.getCause().getClass().getSimpleName() + ": " + e.getCause().getMessage() : e.getMessage();
+            plugin.getLogger().severe("[gnluckyblock] Lỗi thực thi reward '" + rewardId + "' (" + type + "): " + cause);
+            if (debug) {
+                plugin.getLogger().severe("  Player : " + player.getName());
+                plugin.getLogger().severe("  Data   : " + dataSnapshot(data));
+                e.printStackTrace();
+            } else {
+                plugin.getLogger().severe("  → Bật 'debug: true' trong config.yml để xem stack trace đầy đủ.");
+            }
+        }
+    }
+
+    /** Tóm tắt data map thành chuỗi ngắn để log (tránh in toàn bộ data dài) */
+    private String dataSnapshot(Map<String, Object> data) {
+        if (data == null || data.isEmpty()) return "{}";
+        StringBuilder sb = new StringBuilder("{");
+        int count = 0;
+        for (Map.Entry<String, Object> e : data.entrySet()) {
+            if (count++ > 0) sb.append(", ");
+            Object val = e.getValue();
+            String valStr;
+            if (val instanceof java.util.List) {
+                valStr = "List[" + ((java.util.List<?>) val).size() + "]"; 
+            } else if (val instanceof Map) {
+                valStr = "Map{" + ((Map<?, ?>) val).keySet() + "}";
+            } else {
+                valStr = String.valueOf(val);
+            }
+            sb.append(e.getKey()).append("=").append(valStr);
+            if (count >= 8) { sb.append(", ..."); break; }
+        }
+        return sb.append("}").toString();
     }
 
     public RewardManager getRewardManager() {
